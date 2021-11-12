@@ -10,7 +10,7 @@ import MenuIcon from '@mui/icons-material/Menu'
 const Navigation = () => {
     return (
         <Box sx={{ flexGrow: 1 }}>
-            <AppBar position="static">
+            <AppBar style={{ backgroundColor: '#BD9200' }} position="static">
                 <Toolbar>
                     <IconButton
                         size="large"
@@ -21,7 +21,7 @@ const Navigation = () => {
                     >
                         <MenuIcon />
                     </IconButton>
-                    <Typography variant="h4" component="div" sx={{ flexGrow: 1 }}>
+                    <Typography variant="h3" component="div" sx={{ flexGrow: 1, fontWeight: 'bold' }}>
                         Clayware
                     </Typography>
                     <Button color="inherit">Login</Button>
