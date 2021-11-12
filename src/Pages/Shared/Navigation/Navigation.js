@@ -38,13 +38,13 @@ const Navigation = () => {
                         {featherIcon}Clayware
                     </Typography>
                     <Link style={{ textDecoration: 'none', color: 'white' }} to="/home">
-                        <Button style={{ color: 'white', fontSize: 18, fontWeight: 'bold' }} color="inherit"><HomeIcon /></Button>
+                        <Button style={{ color: 'white', fontSize: 18, fontWeight: 'bold' }} title="Home" color="inherit"><HomeIcon /></Button>
                     </Link>
                     <Link style={{ textDecoration: 'none', color: 'white' }} to="/shop">
-                        <Button style={{ color: 'white', fontSize: 18, fontWeight: 'bold' }} color="inherit">{bagIcon}</Button>
+                        <Button style={{ color: 'white', fontSize: 18, fontWeight: 'bold' }} title="Shop" color="inherit">{bagIcon}</Button>
                     </Link>
                     <Link style={{ textDecoration: 'none', color: 'white' }} to="/login">
-                        <Button style={{ color: 'white', fontSize: 18, fontWeight: 'bold' }} color="inherit">{loginIcon}</Button>
+                        <Button style={{ color: 'white', fontSize: 18, fontWeight: 'bold' }} title="Login" color="inherit">{loginIcon}</Button>
                     </Link>
                 </Toolbar>
             </AppBar>

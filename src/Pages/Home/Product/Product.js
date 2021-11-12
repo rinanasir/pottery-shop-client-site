@@ -20,7 +20,7 @@ const Product = (props) => {
     return (
         <Grid item xs={3} sm={3} md={3}>
             <Box sx={{ border: 0 }}>
-                <Card sx={{ minWidth: 275, boxShadow: 0 }}>
+                <Card sx={{ minWidth: 275 }}>
                     <CardMedia
                         component="img"
                         style={{ width: 'auto', height: '200px', margin: '0 auto' }}
