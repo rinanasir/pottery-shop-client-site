@@ -1,16 +1,16 @@
 [
     {
-        "name": "Turkish blue plate",
-        "price": "34.20",
-        "about": "vintage blue white wall decor plate / Turkish blue pottery plate / handmade folk art / diameter 10 inches",
-        "rating": 3,
-        "image": "https://i.etsystatic.com/16797677/r/il/31b003/3229832404/il_794xN.3229832404_t4ay.jpg"
+        "name": "Lotus Matte Bowls",
+        "price": "35.90",
+        "about": "Lotus Matte Ceramic Bowls Set, Creative Dinnerware, Flower Ceramic Bowls, Minimalist Bowl, Floral Bowls, Modern Bowls, Scandinavian Design",
+        "rating": 4,
+        "image": "https://i.etsystatic.com/22916157/r/il/9759f1/3305882295/il_794xN.3305882295_c5cg.jpg"
     },
     {
         "name": "Pottery Mug",
         "price": "35.00",
         "about": "Pottery Mug - 12/16 oz- Coffee + Tea Mug- Honeycomb- Honeybee- Sea Foam- Bee Keeper- Bee Lover Mug- BEE to SEA",
-        "rating": 4,
+        "rating": 3,
         "image": "https://i.etsystatic.com/7363933/r/il/99eaa0/2859925531/il_794xN.2859925531_enfh.jpg"
     },
     {
@@ -28,11 +28,32 @@
         "image": "https://i.etsystatic.com/14787596/r/il/f7d1be/3263961899/il_794xN.3263961899_dadq.jpg"
     },
     {
+        "name": "Purple Jug",
+        "price": "66.46",
+        "about": "Pottery jug, handmade, speckled jug with purple glaze made to order",
+        "rating": 4,
+        "image": "https://i.etsystatic.com/20405818/r/il/9bf1fe/3103105499/il_794xN.3103105499_30la.jpg"
+    },
+    {
         "name": "Rose Teapot",
         "price": "20.99",
         "about": "Vintage Staffordshire Ellgreave rose teapot",
         "rating": 3,
         "image": "https://i.etsystatic.com/19824632/r/il/55f8f0/3425623115/il_794xN.3425623115_nf3h.jpg"
+    },
+    {
+        "name": "Decorative tile",
+        "price": "29.91",
+        "about": "Decorative tile with floral design, handmade tile, Spanish tile, turquoise wall art, mosaic tile,relief tile,ceramic wall art,suzani #3 15cm",
+        "rating": 5,
+        "image": "https://i.etsystatic.com/6184338/r/il/89bd73/2150405774/il_794xN.2150405774_6x3x.jpg"
+    },
+    {
+        "name": "Turquoise bowl",
+        "price": "44.00",
+        "about": "Turquoise Sugar bowl with lid - Sugar container - Sugar pot with lid - Pottery pot - Clay pot with lid",
+        "rating": 5,
+        "image": "https://i.etsystatic.com/21782594/r/il/fb7ecb/3425994357/il_794xN.3425994357_4fsw.jpg"
     },
     {
         "name": "Salad Bowl",
@@ -42,17 +63,24 @@
         "image": "https://i.etsystatic.com/10779561/r/il/9c7f98/1836017282/il_794xN.1836017282_1sq2.jpg"
     },
     {
-        "name": "Purple Jug",
-        "price": "66.446",
-        "about": "Pottery jug, handmade, speckled jug with purple glaze made to order",
-        "rating": 4,
-        "image": "https://i.etsystatic.com/20405818/r/il/9bf1fe/3103105499/il_794xN.3103105499_30la.jpg"
-    },
-    {
         "name": "Speckled Mug",
         "price": "48.00",
         "about": "Speckled Mug, Stoneware Mug, Handmade Pottery Mug, Gift For Mom",
         "rating": 3,
         "image": "https://i.etsystatic.com/24195369/r/il/f1d132/2993150408/il_794xN.2993150408_hm70.jpg"
+    },
+    {
+        "name": "Sugar Bowl",
+        "price": "53.17",
+        "about": "Sugar Bowl with Spoon - Lime Green Glaze",
+        "rating": 5,
+        "image": "https://i.etsystatic.com/13198178/r/il/dc0e6f/3361661594/il_794xN.3361661594_q15s.jpg"
+    },
+    {
+        "name": "Turkish blue plate",
+        "price": "34.20",
+        "about": "Vintage blue white wall decor plate / Turkish blue pottery plate / handmade folk art / diameter 10 inches",
+        "rating": 3,
+        "image": "https://i.etsystatic.com/16797677/r/il/31b003/3229832404/il_794xN.3229832404_t4ay.jpg"
     }
 ]

@@ -5,9 +5,11 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@mui/icons-material/Menu'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFeatherAlt } from '@fortawesome/free-solid-svg-icons';
 
 const Navigation = () => {
+    const featherIcon = <FontAwesomeIcon icon={faFeatherAlt} />
     return (
         <Box sx={{ flexGrow: 1 }}>
             <AppBar style={{ backgroundColor: '#BD9200' }} position="static">
@@ -19,10 +21,9 @@ const Navigation = () => {
                         aria-label="menu"
                         sx={{ mr: 2 }}
                     >
-                        <MenuIcon />
                     </IconButton>
-                    <Typography variant="h3" component="div" sx={{ flexGrow: 1, fontWeight: 'bold' }}>
-                        Clayware
+                    <Typography style={{ textAlign: 'left' }} variant="h3" component="div" sx={{ flexGrow: 1, fontWeight: 'bold' }}>
+                        {featherIcon}Clayware
                     </Typography>
                     <Button color="inherit">Login</Button>
                 </Toolbar>

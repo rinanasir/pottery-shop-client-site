@@ -1,5 +1,5 @@
 # Clayware
 
-This project was bootstrapped with [Clayware](https://github.com/facebook/create-react-app).
+This project was developed with react-app and material UI [Clayware](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+# About This Website

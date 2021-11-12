@@ -20,9 +20,9 @@ const Products = () => {
                 <Typography sx={{ fontWeight: 'bold', color: '#BD9200', m: 4 }} variant="h3" component="div">
                     New Arivals
                 </Typography>
-                <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
+                <Grid container spacing={{ xs: 2, md: 5 }} columns={{ xs: 4, sm: 8, md: 12 }}>
                     {
-                        products.map(product => <Product
+                        products.slice(0, 8).map(product => <Product
                             key={product.name}
                             product={product}
                         ></Product>)
