@@ -16,7 +16,7 @@ const reviews = [
     },
     {
         name: 'Sophia Watson',
-        description: 'I love their vitage vases, they are very unique, and satisfied with their customer care'
+        description: 'I love their vases, they are very unique, and satisfied with their customer care'
     }
 ]
 
@@ -24,8 +24,8 @@ const Reviews = () => {
     return (
         <Box sx={{ flexGrow: 1 }}>
             <Container>
-                <Typography sx={{ textAlign: 'left', fontWeight: 'bold', color: '#BD9200', m: 4 }} variant="h3" component="div">
-                    Reviews
+                <Typography sx={{ textAlign: 'left', fontWeight: 'bold', m: 5, pt: 5 }} variant="h3" component="div">
+                    People's <span style={{ color: '#BD9200' }}>thought</span> on us
                 </Typography>
                 <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
                     {

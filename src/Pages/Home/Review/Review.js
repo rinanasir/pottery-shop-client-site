@@ -8,13 +8,13 @@ const Review = (props) => {
     const { name, description } = props.review;
 
     return (
-        <Grid item xs={4} sm={4} md={4}>
+        <Grid item xs={4} sm={4} md={4} sx={{ mb: 4 }}>
             <Card sx={{ minWidth: 275, backgroundColor: '#F5F0B5' }}>
                 <CardContent>
                     <Typography sx={{ fontWeight: 'bold' }} variant="h6" component="div">
                         {name}
                     </Typography>
-                    <Typography variant="subtitle1" color="text.secondary">
+                    <Typography sx={{ fontWeight: 'bold' }} variant="subtitle1" color="text.secondary">
                         "{description}"
                     </Typography>
                 </CardContent>
