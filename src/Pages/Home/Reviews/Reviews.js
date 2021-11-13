@@ -12,11 +12,11 @@ const reviews = [
     },
     {
         name: 'Adam Smith',
-        description: 'Very easy to order, delivery done within the mentioned time, recommended.'
+        description: 'Very easy to order, delivery done within the mentioned time. Recommended.'
     },
     {
         name: 'Sophia Watson',
-        description: 'I love their vases, they are very unique, and satisfied with their customer care'
+        description: 'I love their vases, they are very unique. I am satisfied with their customer care'
     }
 ]
 

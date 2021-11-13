@@ -11,10 +11,10 @@ const Review = (props) => {
         <Grid item xs={4} sm={4} md={4} sx={{ mb: 4 }}>
             <Card sx={{ minWidth: 275, backgroundColor: '#F5F0B5' }}>
                 <CardContent>
-                    <Typography sx={{ fontWeight: 'bold' }} variant="h6" component="div">
+                    <Typography sx={{ fontWeight: 'bold', pt: 2 }} variant="h6" component="div">
                         {name}
                     </Typography>
-                    <Typography sx={{ fontWeight: 'bold' }} variant="subtitle1" color="text.secondary">
+                    <Typography sx={{ fontWeight: 'bold', pb: 2 }} variant="subtitle1" color="text.secondary">
                         "{description}"
                     </Typography>
                 </CardContent>

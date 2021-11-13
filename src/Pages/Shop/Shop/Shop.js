@@ -1,9 +1,14 @@
 import React from 'react';
+import Footer from '../../Shared/Footer/Footer';
+import Navigation from '../../Shared/Navigation/Navigation';
+import ShopProducts from '../ShopProducts/ShopProducts';
 
 const Shop = () => {
     return (
         <div>
-            <h2>This is Shop</h2>
+            <Navigation />
+            <ShopProducts />
+            <Footer />
         </div>
     );
 };

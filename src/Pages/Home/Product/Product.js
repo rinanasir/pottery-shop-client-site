@@ -34,7 +34,7 @@ const Product = (props) => {
                         <Typography sx={{ fontWeight: 'bold', color: 'red' }} variant="h6" component="div">
                             {dollarIcon} {price}
                         </Typography>
-                        <Rating name="size-medium" defaultValue={rating} />
+                        <Rating readOnly name="size-medium" defaultValue={rating} />
                         <br />
                         <Button style={{ backgroundColor: '#BD9200', color: 'white' }} variant="contained">{infoIcon}_Details</Button>
                     </CardContent>

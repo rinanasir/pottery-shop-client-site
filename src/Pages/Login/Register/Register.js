@@ -1,0 +1,111 @@
+import React, { useState } from 'react';
+import { Button, Container, Grid, TextField, Typography } from '@mui/material';
+import CircularProgress from '@mui/material/CircularProgress';
+import Alert from '@mui/material/Alert';
+import { NavLink } from 'react-router-dom';
+import Navigation from '../../Shared/Navigation/Navigation';
+import Footer from '../../Shared/Footer/Footer';
+import useAuth from '../../../hooks/useAuth';
+
+const Register = () => {
+    const { user, registerUser, isLoading, authError } = useAuth();
+
+    const [loginData, setLoginData] = useState();
+    // <CircularProgress color="inherit" />
+    const handleOnChange = e => {
+        const field = e.target.name;
+        const value = e.target.value;
+        const newLoginData = { ...loginData };
+        newLoginData[field] = value;
+        setLoginData(newLoginData);
+    };
+    const handleLoginSubmit = e => {
+        if (loginData.password !== loginData.password2) {
+            alert('Your password did not match');
+            return
+        };
+        // registerUser(loginData.email, loginData.password, loginData.name, history);
+        registerUser(loginData.email, loginData.password);
+        e.preventDefault();
+    };
+    return (
+        <>
+            <>
+                <Navigation />
+                <Container sx={{ pb: 21 }}>
+                    <Grid container spacing={2}>
+                        <Grid item sx={{ mt: 15 }} xs={12} md={6}>
+                            <Typography
+                                style={{ color: '#BD9200', fontWeight: '600' }}
+                                variant="h4"
+                                gutterBottom component="div">
+                                Register
+                            </Typography>
+                            {!isLoading && <form onSubmit={handleLoginSubmit}>
+                                {/* <TextField
+                                    sx={{ width: '75%', m: 1 }}
+                                    id="standard-basic"
+                                    label="Your Name"
+                                    name="name"
+                                    onChange={handleOnChange}
+                                    variant="standard" /> */}
+                                <TextField
+                                    sx={{ width: '75%', m: 1 }}
+                                    id="standard-basic"
+                                    label="Your Email"
+                                    name="email"
+                                    type="email"
+                                    onChange={handleOnChange}
+                                    variant="standard" />
+                                <TextField
+                                    sx={{ width: '75%', m: 1 }}
+                                    id="standard-basic"
+                                    label="Your Password"
+                                    type="password"
+                                    name="password"
+                                    onChange={handleOnChange}
+                                    variant="standard" />
+                                <TextField
+                                    sx={{ width: '75%', m: 1 }}
+                                    id="standard-basic"
+                                    label="ReType Your Password"
+                                    type="password"
+                                    name="password2"
+                                    onChange={handleOnChange}
+                                    variant="standard" />
+                                <Button
+                                    type="submit"
+                                    sx={{ width: '75%', m: 1 }}
+                                    style={{ backgroundColor: '#BD9200', color: 'white', fontSize: 15, fontWeight: 'bold' }} variant="contained"
+                                >Register</Button>
+                            </form>}
+                            {isLoading && <CircularProgress sx={{ color: '#BD9200' }} color="inherit" />}
+                            {user?.email && <Alert severity="success">Account Created Successfully</Alert>}
+                            {authError && <Alert severity="error">{authError}</Alert>}
+                        </Grid>
+                        <Grid item sx={{ mt: 15 }} xs={12} md={6}>
+                            <Typography
+                                sx={{ mb: 5 }}
+                                style={{ color: '#BD9200', fontWeight: '600' }}
+                                variant="h4"
+                                gutterBottom component="div">
+                                Login
+                            </Typography>
+                            <Typography sx={{ fontWeight: 'bold', mb: 4, pb: 2 }} variant="subtitle1" color="text.secondary">
+                                Already Registerd ?
+                            </Typography>
+                            <NavLink
+                                style={{ textDecoration: 'none' }}
+                                to="/login">
+                                <Button sx={{ width: '75%', m: 1 }} style={{ backgroundColor: '#BD9200', color: 'white', fontSize: 15, fontWeight: 'bold' }} variant="contained">Login</Button>
+                            </NavLink>
+                        </Grid>
+                    </Grid>
+                </Container>
+                <Footer></Footer>
+            </>
+        </>
+    );
+};
+
+export default Register;

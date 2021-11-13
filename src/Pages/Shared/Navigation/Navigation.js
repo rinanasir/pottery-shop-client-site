@@ -7,8 +7,9 @@ import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import SvgIcon from '@mui/material/SvgIcon';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFeatherAlt, faShoppingBag, faSignInAlt } from '@fortawesome/free-solid-svg-icons';
-import { Link } from 'react-router-dom';
+import { faFeatherAlt, faPowerOff, faShoppingBag, faUserAlt } from '@fortawesome/free-solid-svg-icons';
+import { Link, NavLink } from 'react-router-dom';
+import useAuth from '../../../hooks/useAuth';
 
 function HomeIcon(props) {
     return (
@@ -19,9 +20,12 @@ function HomeIcon(props) {
 }
 
 const Navigation = () => {
+    const { user, logOut } = useAuth();
+
     const featherIcon = <FontAwesomeIcon icon={faFeatherAlt} />
-    const loginIcon = <FontAwesomeIcon icon={faSignInAlt} />
+    const userIcon = <FontAwesomeIcon icon={faUserAlt} />
     const bagIcon = <FontAwesomeIcon icon={faShoppingBag} />
+    const powerIcon = <FontAwesomeIcon icon={faPowerOff} />
     return (
         <Box sx={{ flexGrow: 1 }}>
             <AppBar style={{ backgroundColor: '#BD9200' }} position="static">
@@ -43,9 +47,14 @@ const Navigation = () => {
                     <Link style={{ textDecoration: 'none', color: 'white' }} to="/shop">
                         <Button style={{ color: 'white', fontSize: 18, fontWeight: 'bold' }} title="Shop" color="inherit">{bagIcon}</Button>
                     </Link>
-                    <Link style={{ textDecoration: 'none', color: 'white' }} to="/login">
-                        <Button style={{ color: 'white', fontSize: 18, fontWeight: 'bold' }} title="Login" color="inherit">{loginIcon}</Button>
-                    </Link>
+                    {
+                        user?.email ?
+                            <Button onClick={logOut} style={{ color: 'white', fontSize: 18, fontWeight: 'bold' }} title="Logout" color="inherit">{powerIcon}</Button>
+                            :
+                            <NavLink to="/login" style={{ textDecoration: 'none', color: 'white' }}>
+                                <Button style={{ color: 'white', fontSize: 18, fontWeight: 'bold' }} title="Account" color="inherit">{userIcon}</Button>
+                            </NavLink>
+                    }
                 </Toolbar>
             </AppBar>
         </Box>
