@@ -7,7 +7,7 @@ import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import SvgIcon from '@mui/material/SvgIcon';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFeatherAlt, faPowerOff, faShoppingBag, faUserAlt } from '@fortawesome/free-solid-svg-icons';
+import { faDoorOpen, faFeatherAlt, faPowerOff, faShoppingBag, faUserAlt } from '@fortawesome/free-solid-svg-icons';
 import { Link, NavLink } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
 
@@ -26,6 +26,7 @@ const Navigation = () => {
     const userIcon = <FontAwesomeIcon icon={faUserAlt} />
     const bagIcon = <FontAwesomeIcon icon={faShoppingBag} />
     const powerIcon = <FontAwesomeIcon icon={faPowerOff} />
+    const doorIcon = <FontAwesomeIcon icon={faDoorOpen} />
     return (
         <Box sx={{ flexGrow: 1 }}>
             <AppBar style={{ backgroundColor: '#BD9200' }} position="static">
@@ -49,7 +50,12 @@ const Navigation = () => {
                     </Link>
                     {
                         user?.email ?
-                            <Button onClick={logOut} style={{ color: 'white', fontSize: 18, fontWeight: 'bold' }} title="Logout" color="inherit">{powerIcon}</Button>
+                            <>
+                                <NavLink to="/dashboard">
+                                    <Button style={{ color: 'white', fontSize: 18, fontWeight: 'bold' }} title="Dashboard" color="inherit">{doorIcon}</Button>
+                                </NavLink>
+                                <Button onClick={logOut} style={{ color: 'white', fontSize: 18, fontWeight: 'bold' }} title="Logout" color="inherit">{powerIcon}_{user.displayName}</Button>
+                            </>
                             :
                             <NavLink to="/login" style={{ textDecoration: 'none', color: 'white' }}>
                                 <Button style={{ color: 'white', fontSize: 18, fontWeight: 'bold' }} title="Account" color="inherit">{userIcon}</Button>

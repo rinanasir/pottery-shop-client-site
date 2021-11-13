@@ -7,7 +7,8 @@ import useAuth from '../../../hooks/useAuth';
 
 const Login = () => {
     const [loginData, setLoginData] = useState();
-    const { user, loginUser, isLoading, authError } = useAuth();
+
+    const { user, loginUser, isLoading, signInWithGoogle, authError } = useAuth();
 
     const location = useLocation();
     const history = useHistory();
@@ -23,6 +24,11 @@ const Login = () => {
         loginUser(loginData.email, loginData.password, location, history);
         e.preventDefault();
     };
+
+    const handleGoogleSignIn = () => {
+        signInWithGoogle(location, history);
+    };
+
     return (
         <>
             <Navigation />
@@ -41,7 +47,7 @@ const Login = () => {
                                 id="standard-basic"
                                 label="Your Email"
                                 name="email"
-                                onChange={handleOnChange}
+                                onBlur={handleOnChange}
                                 variant="standard" />
                             <TextField
                                 sx={{ width: '75%', m: 1 }}
@@ -49,7 +55,7 @@ const Login = () => {
                                 label="Your Password"
                                 type="password"
                                 name="password"
-                                onChange={handleOnChange}
+                                onBlur={handleOnChange}
                                 variant="standard" />
                             <Button
                                 type="submit"
@@ -62,7 +68,7 @@ const Login = () => {
                         {authError && <Alert severity="error">{authError}</Alert>}
                         <p style={{ color: '#BD9200', fontWeight: 'bold' }}>---------------------------------------------------------------</p>
                         <Button
-                            // onClick={ }
+                            onClick={handleGoogleSignIn}
                             type="submit"
                             sx={{ width: '75%', m: 1 }}
                             style={{ backgroundColor: '#BD9200', color: 'white', fontSize: 15, fontWeight: 'bold' }} variant="contained"

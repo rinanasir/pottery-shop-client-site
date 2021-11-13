@@ -13,23 +13,25 @@ const useFirebase = () => {
 
     const auth = getAuth();
 
+    const googleProvider = new GoogleAuthProvider();
+
     // User register function
     const registerUser = (email, password, name, history) => {
         setIsLoading(true);
         createUserWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
                 setAuthError('');
-                // const newUser = { email, displayName: name };
-                // setUser(newUser);
+                const newUser = { email, displayName: name };
+                setUser(newUser);
                 // // save user to the database
                 // saveUser(email, name, 'POST');
-                // // send name to firebase after creation
-                // updateProfile(auth.currentUser, {
-                //     displayName: name
-                // }).then(() => {
-                // }).catch((error) => {
-                // });
-                // history.replace('/');
+                // send name to firebase after creation
+                updateProfile(auth.currentUser, {
+                    displayName: name
+                }).then(() => {
+                }).catch((error) => {
+                });
+                history.replace('/dashboard');
             })
             .catch((error) => {
                 setAuthError(error.message);
@@ -51,6 +53,22 @@ const useFirebase = () => {
             })
             .finally(() => setIsLoading(false));
     };
+
+    // Login with Google
+    const signInWithGoogle = (location, history) => {
+        setIsLoading(true);
+        signInWithPopup(auth, googleProvider)
+            .then((result) => {
+                const user = result.user;
+                // saveUser(user.email, user.displayName, 'PUT');
+                const destination = location?.state?.from || '/dashboard';
+                history.replace(destination);
+                setAuthError('');
+            }).catch((error) => {
+                setAuthError(error.message);
+            })
+            .finally(() => setIsLoading(false));
+    }
 
     // observe user state
     useEffect(() => {
@@ -89,6 +107,7 @@ const useFirebase = () => {
         authError,
         registerUser,
         loginUser,
+        signInWithGoogle,
         logOut
     };
 };

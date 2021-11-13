@@ -5,7 +5,7 @@ import { Redirect, Route } from 'react-router';
 
 const PrivateRoute = ({ children, ...rest }) => {
     const { user, isLoading } = useAuth();
-    if (isLoading) { return <CircularProgress sx={{ color: '#BD9200' }} color="inherit" /> }
+    if (isLoading) { return <CircularProgress sx={{ color: '#BD9200', mt: 4 }} color="inherit" /> }
     return (
         <Route
             {...rest}
