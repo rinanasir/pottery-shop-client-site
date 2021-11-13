@@ -50,12 +50,12 @@ const Navigation = () => {
                     </Link>
                     {
                         user?.email ?
-                            <>
+                            <Box>
                                 <NavLink to="/dashboard">
                                     <Button style={{ color: 'white', fontSize: 18, fontWeight: 'bold' }} title="Dashboard" color="inherit">{doorIcon}</Button>
                                 </NavLink>
                                 <Button onClick={logOut} style={{ color: 'white', fontSize: 18, fontWeight: 'bold' }} title="Logout" color="inherit">{powerIcon}_{user.displayName}</Button>
-                            </>
+                            </Box>
                             :
                             <NavLink to="/login" style={{ textDecoration: 'none', color: 'white' }}>
                                 <Button style={{ color: 'white', fontSize: 18, fontWeight: 'bold' }} title="Account" color="inherit">{userIcon}</Button>
