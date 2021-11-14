@@ -64,7 +64,6 @@ const Login = () => {
                             >Login</Button>
                         </form>
                         {isLoading && <CircularProgress sx={{ color: '#BD9200' }} color="inherit" />}
-                        {/* {user?.email && <Alert severity="success">Account Created Successfully</Alert>} */}
                         {authError && <Alert severity="error">{authError}</Alert>}
                         <p style={{ color: '#BD9200', fontWeight: 'bold' }}>---------------------------------------------------------------</p>
                         <Button
@@ -93,7 +92,7 @@ const Login = () => {
                     </Grid>
                 </Grid>
             </Container>
-            <Footer></Footer>
+            <Footer />
         </>
     );
 };

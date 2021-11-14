@@ -9,9 +9,10 @@ import { Box } from '@mui/system';
 import Rating from '@mui/material/Rating';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faDollarSign, faInfoCircle } from '@fortawesome/free-solid-svg-icons';
+import { NavLink } from 'react-router-dom';
 
 const ShopProduct = (props) => {
-    const { name, rating, price, image } = props.product;
+    const { _id, name, rating, price, image } = props.product;
 
     const dollarIcon = <FontAwesomeIcon icon={faDollarSign} />
     const infoIcon = <FontAwesomeIcon icon={faInfoCircle} />
@@ -35,7 +36,9 @@ const ShopProduct = (props) => {
                         </Typography>
                         <Rating readOnly name="size-medium" defaultValue={rating} />
                         <br />
-                        <Button style={{ backgroundColor: '#BD9200', color: 'white' }} variant="contained">{infoIcon}_Details</Button>
+                        <NavLink style={{ textDecoration: 'none' }} to={`/productdetails/${_id}`}>
+                            <Button style={{ backgroundColor: '#BD9200', color: 'white' }} variant="contained">{infoIcon}_Details</Button>
+                        </NavLink>
                     </CardContent>
                 </Card>
             </Box>

@@ -1,12 +1,14 @@
-import { Button, Container, Grid, TextField, Typography } from '@mui/material';
 import React, { useState } from 'react';
+import { Button, Container, Grid, TextField, Typography } from '@mui/material';
+import Alert from '@mui/material/Alert';
 
 const AddProduct = () => {
     const [productData, setProductData] = useState();
+    const [addedSuccess, setAddedSuccess] = useState(false);
 
     const handleOnBlur = e => {
         const field = e.target.name;
-        const value = e.target.value;
+        let value = e.target.value;
         const newProductData = { ...productData };
         newProductData[field] = value;
         // console.log(newProductData);
@@ -24,7 +26,9 @@ const AddProduct = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data);
+                if (data.insertedId) {
+                    setAddedSuccess(true);
+                }
             })
         // alert('Product Added Successfully');
         e.preventDefault();
@@ -86,6 +90,7 @@ const AddProduct = () => {
                         style={{ backgroundColor: '#BD9200', color: 'white', fontSize: 15, fontWeight: 'bold' }} variant="contained"
                     >Submit</Button>
                 </form>
+                {addedSuccess && <Alert sx={{ fontWeight: 'bold', fontSize: 15 }} severity="success">Product Added Successfully</Alert>}
             </Grid>
         </Container>
     );

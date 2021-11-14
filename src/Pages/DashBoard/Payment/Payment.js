@@ -5,7 +5,7 @@ import React from 'react';
 const Payment = () => {
     return (
         <Box container>
-            <Typography sx={{ fontWeight: 'bold' }} variant="subtitle1" color="text.secondary">
+            <Typography sx={{ fontWeight: 'bold', fontSize: 20 }} variant="subtitle1" color="text.secondary">
                 Payment System Comming Soon !!
             </Typography>
         </Box>

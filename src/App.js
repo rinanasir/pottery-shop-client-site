@@ -2,12 +2,14 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import './App.css';
 import AuthProvider from './context/AuthProvider/AuthProvider';
 import AddProduct from './Pages/DashBoard/AddProduct/AddProduct';
+import Cart from './Pages/DashBoard/Cart/Cart';
 import Dashboard from './Pages/DashBoard/DashBoard/Dashboard';
 import Home from './Pages/Home/Home/Home';
 import Login from './Pages/Login/Login/Login';
 import PrivateRoute from './Pages/Login/PrivateRoute/PrivateRoute';
 import Register from './Pages/Login/Register/Register';
 import NotFound from './Pages/NotFound/NotFound';
+import ProductDetails from './Pages/ProductDetails/ProductDetails';
 import Shop from './Pages/Shop/Shop/Shop';
 
 function App() {
@@ -21,6 +23,9 @@ function App() {
             </Route>
             <PrivateRoute path="/dashboard">
               <Dashboard></Dashboard>
+            </PrivateRoute>
+            <PrivateRoute path="/productdetails/:id">
+              <ProductDetails></ProductDetails>
             </PrivateRoute>
             <Route path="/home">
               <Home></Home>
@@ -36,6 +41,9 @@ function App() {
             </Route>
             <Route path="/addProduct">
               <AddProduct></AddProduct>
+            </Route>
+            <Route path="/cart">
+              <Cart />
             </Route>
             <Route path="*">
               <NotFound></NotFound>
