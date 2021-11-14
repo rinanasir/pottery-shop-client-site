@@ -9,6 +9,21 @@ import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
+import {
+    Switch,
+    Route,
+    Link,
+    useRouteMatch
+} from "react-router-dom";
+import { Button } from '@mui/material';
+import MyOrders from '../MyOrders/MyOrders';
+import AddProduct from '../AddProduct/AddProduct';
+import MakeAdmin from '../MakeAdmin/MakeAdmin';
+import Payment from '../Payment/Payment';
+import Review from '../Review/Review';
+import useAuth from '../../../hooks/useAuth';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUserAlt } from '@fortawesome/free-solid-svg-icons';
 
 const drawerWidth = 240;
 
@@ -16,15 +31,44 @@ function Dashboard(props) {
     const { window } = props;
     const [mobileOpen, setMobileOpen] = React.useState(false);
 
+    let { path, url } = useRouteMatch();
+
+    const { user, logOut } = useAuth();
+
+    const userIcon = <FontAwesomeIcon icon={faUserAlt} />
+
     const handleDrawerToggle = () => {
         setMobileOpen(!mobileOpen);
     };
 
     const drawer = (
         <div>
-            <Toolbar style={{ backgroundColor: '#BD9200', color: 'black' }} />
+            <Toolbar style={{ backgroundColor: '#BD9200', color: 'white', fontWeight: 'bold' }}>{userIcon}_{user.displayName}</Toolbar>
+            <Divider sx={{ mb: 3 }} />
+            <Link style={{ textDecoration: 'none' }} to={`${url}`}>
+                <Button style={{ color: '#BD9200', fontSize: 15, fontWeight: 'bold' }} color="inherit">My Orders</Button>
+            </Link> <br />
+            <Link style={{ textDecoration: 'none' }} to={`${url}/payment`}>
+                <Button style={{ color: '#BD9200', fontSize: 15, fontWeight: 'bold' }} color="inherit">Payment</Button>
+            </Link> <br />
+            <Link style={{ textDecoration: 'none' }} to={`${url}/review`}>
+                <Button style={{ color: '#BD9200', fontSize: 15, fontWeight: 'bold' }} color="inherit">Review</Button>
+            </Link> <br />
+            <Link style={{ textDecoration: 'none' }} to="/shop">
+                <Button style={{ color: '#BD9200', fontSize: 15, fontWeight: 'bold' }} color="inherit">Shop</Button>
+            </Link> <br />
             <Divider />
+            <Link style={{ textDecoration: 'none' }} to={`${url}/addProduct`}>
+                <Button style={{ color: '#BD9200', fontSize: 15, fontWeight: 'bold' }} color="inherit">Add Product</Button>
+            </Link> <br />
+            <Link style={{ textDecoration: 'none' }} to={`${url}/makeAdmin`}>
+                <Button style={{ color: '#BD9200', fontSize: 15, fontWeight: 'bold' }} color="inherit">Add Admin</Button>
+            </Link> <br />
+            {/* <Link style={{ textDecoration: 'none' }} to={`${url}`}>
+                <Button style={{ color: '#BD9200', fontSize: 15, fontWeight: 'bold' }} color="inherit">Manage Products</Button>
+            </Link> */}
             <Divider />
+            <Button onClick={logOut} style={{ color: '#BD9200', fontSize: 15, fontWeight: 'bold' }} color="inherit">Logout</Button>
         </div>
     );
 
@@ -92,7 +136,23 @@ function Dashboard(props) {
                 sx={{ flexGrow: 1, p: 3, width: { sm: `calc(100% - ${drawerWidth}px)` } }}
             >
                 <Toolbar />
-                {/* Content Here */}
+                <Switch>
+                    <Route exact path={path}>
+                        <MyOrders></MyOrders>
+                    </Route>
+                    <Route path={`${path}/payment`}>
+                        <Payment></Payment>
+                    </Route>
+                    <Route path={`${path}/review`}>
+                        <Review></Review>
+                    </Route>
+                    <Route path={`${path}/makeAdmin`}>
+                        <MakeAdmin></MakeAdmin>
+                    </Route>
+                    <Route path={`${path}/addProduct`}>
+                        <AddProduct></AddProduct>
+                    </Route>
+                </Switch>
             </Box>
         </Box>
     );

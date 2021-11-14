@@ -36,7 +36,7 @@ const AddProduct = () => {
 
     return (
         <Container>
-            <Grid item sx={{ mt: 15 }} xs={12} md={6}>
+            <Grid item sx={{ mt: 10, ml: 10 }} xs={12} md={6}>
                 <Typography
                     style={{ color: '#BD9200', fontWeight: '600' }}
                     variant="h4"
