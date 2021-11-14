@@ -22,7 +22,7 @@ function Dashboard(props) {
 
     const drawer = (
         <div>
-            <Toolbar />
+            <Toolbar style={{ backgroundColor: '#BD9200', color: 'black' }} />
             <Divider />
             <Divider />
         </div>
