@@ -24,6 +24,7 @@ import Review from '../Review/Review';
 import useAuth from '../../../hooks/useAuth';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUserAlt } from '@fortawesome/free-solid-svg-icons';
+import ManageProducts from '../ManageProducts/ManageProducts';
 
 const drawerWidth = 240;
 
@@ -33,7 +34,7 @@ function Dashboard(props) {
 
     let { path, url } = useRouteMatch();
 
-    const { user, logOut } = useAuth();
+    const { user, admin, logOut } = useAuth();
 
     const userIcon = <FontAwesomeIcon icon={faUserAlt} />
 
@@ -57,16 +58,18 @@ function Dashboard(props) {
             <Link style={{ textDecoration: 'none' }} to="/shop">
                 <Button style={{ color: '#BD9200', fontSize: 15, fontWeight: 'bold' }} color="inherit">Shop</Button>
             </Link> <br />
-            <Divider />
-            <Link style={{ textDecoration: 'none' }} to={`${url}/addProduct`}>
-                <Button style={{ color: '#BD9200', fontSize: 15, fontWeight: 'bold' }} color="inherit">Add Product</Button>
-            </Link> <br />
-            <Link style={{ textDecoration: 'none' }} to={`${url}/makeAdmin`}>
-                <Button style={{ color: '#BD9200', fontSize: 15, fontWeight: 'bold' }} color="inherit">Add Admin</Button>
-            </Link> <br />
-            {/* <Link style={{ textDecoration: 'none' }} to={`${url}`}>
-                <Button style={{ color: '#BD9200', fontSize: 15, fontWeight: 'bold' }} color="inherit">Manage Products</Button>
-            </Link> */}
+            {admin && <Box>
+                <Divider />
+                <Link style={{ textDecoration: 'none' }} to={`${url}/addProduct`}>
+                    <Button style={{ color: '#BD9200', fontSize: 15, fontWeight: 'bold' }} color="inherit">Add Product</Button>
+                </Link> <br />
+                <Link style={{ textDecoration: 'none' }} to={`${url}/makeAdmin`}>
+                    <Button style={{ color: '#BD9200', fontSize: 15, fontWeight: 'bold' }} color="inherit">Add Admin</Button>
+                </Link> <br />
+                <Link style={{ textDecoration: 'none' }} to={`${url}/manageProducts`}>
+                    <Button style={{ color: '#BD9200', fontSize: 15, fontWeight: 'bold' }} color="inherit">Manage Products</Button>
+                </Link>
+            </Box>}
             <Divider />
             <Button onClick={logOut} style={{ color: '#BD9200', fontSize: 15, fontWeight: 'bold' }} color="inherit">Logout</Button>
         </div>
@@ -95,7 +98,7 @@ function Dashboard(props) {
                     >
                         <MenuIcon />
                     </IconButton>
-                    <Typography style={{ fontWeight: 'bold' }} variant="h5" noWrap component="div">
+                    <Typography style={{ fontWeight: 'bold', color: 'white' }} variant="h5" noWrap component="div">
                         Dashboard
                     </Typography>
                 </Toolbar>
@@ -151,6 +154,9 @@ function Dashboard(props) {
                     </Route>
                     <Route path={`${path}/addProduct`}>
                         <AddProduct></AddProduct>
+                    </Route>
+                    <Route path={`${path}/manageProducts`}>
+                        <ManageProducts></ManageProducts>
                     </Route>
                 </Switch>
             </Box>

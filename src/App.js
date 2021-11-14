@@ -37,12 +37,6 @@ function App() {
             <Route path="/register">
               <Register></Register>
             </Route>
-            {/* <Route path="/addProduct">
-              <AddProduct></AddProduct>
-            </Route>
-            <Route path="/cart">
-              <Cart />
-            </Route> */}
             <Route path="*">
               <NotFound></NotFound>
             </Route>
