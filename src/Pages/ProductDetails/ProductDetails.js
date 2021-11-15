@@ -1,6 +1,6 @@
 import { faCartPlus, faDollarSign } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Button, Container, Divider, Grid, Typography } from '@mui/material';
+import { Button, Container, Grid, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
@@ -22,7 +22,7 @@ const ProductDetails = () => {
         fetch(`http://localhost:5000/products/${id}`)
             .then(res => res.json())
             .then(data => setProduct(data));
-    }, [])
+    }, [id])
 
     useEffect(() => {
         fetch("http://localhost:5000/products")
