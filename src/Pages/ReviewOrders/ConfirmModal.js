@@ -45,8 +45,8 @@ const ConfirmModal = ({ cart, openConfirm, handleConfirmClose }) => {
         };
         console.log(order);
 
-        // // send data to server
-        fetch('http://localhost:5000/orders', {
+        // send data to server
+        fetch('https://arcane-shelf-64714.herokuapp.com/orders', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

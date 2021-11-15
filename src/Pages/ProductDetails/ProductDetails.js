@@ -19,13 +19,13 @@ const ProductDetails = () => {
     const cartIcon = <FontAwesomeIcon icon={faCartPlus} />
 
     useEffect(() => {
-        fetch(`http://localhost:5000/products/${id}`)
+        fetch(`https://arcane-shelf-64714.herokuapp.com/products/${id}`)
             .then(res => res.json())
             .then(data => setProduct(data));
     }, [id])
 
     useEffect(() => {
-        fetch("http://localhost:5000/products")
+        fetch("https://arcane-shelf-64714.herokuapp.com/products")
             .then(res => res.json())
             .then(data => setProducts(data));
     }, []);

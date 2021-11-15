@@ -17,7 +17,7 @@ const AddProduct = () => {
 
     const handleProductSubmit = e => {
         // console.log(productData);
-        fetch('http://localhost:5000/products', {
+        fetch('https://arcane-shelf-64714.herokuapp.com/products', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

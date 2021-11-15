@@ -45,7 +45,7 @@ const useFirebase = () => {
         setIsLoading(true);
         signInWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
-                const destination = location?.state?.from || '/dashboard';
+                const destination = location?.state?.from || '/';
                 history.replace(destination);
                 setAuthError('');
             })
@@ -62,7 +62,7 @@ const useFirebase = () => {
             .then((result) => {
                 const user = result.user;
                 saveUser(user.email, user.displayName, 'PUT');
-                const destination = location?.state?.from || '/dashboard';
+                const destination = location?.state?.from || '/';
                 history.replace(destination);
                 setAuthError('');
             }).catch((error) => {
@@ -91,7 +91,7 @@ const useFirebase = () => {
 
     // Observeing if the user is admin
     useEffect(() => {
-        fetch(`http://localhost:5000/users/${user.email}`)
+        fetch(`https://arcane-shelf-64714.herokuapp.com/users/${user.email}`)
             .then(res => res.json())
             .then(data => setAdmin(data.admin));
     }, [user.email]);
@@ -112,7 +112,7 @@ const useFirebase = () => {
     // Storing user information in database
     const saveUser = (email, displayName, method) => {
         const user = { email, displayName };
-        fetch('http://localhost:5000/users', {
+        fetch('https://arcane-shelf-64714.herokuapp.com/users', {
             method: method,
             headers: {
                 'content-type': 'application/json'

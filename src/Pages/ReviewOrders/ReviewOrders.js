@@ -21,7 +21,7 @@ const ReviewOrders = () => {
     const confirmIcon = <FontAwesomeIcon icon={faCheckCircle} />
 
     useEffect(() => {
-        fetch("http://localhost:5000/products")
+        fetch("https://arcane-shelf-64714.herokuapp.com/products")
             .then(res => res.json())
             .then(data => setProducts(data));
     }, []);
