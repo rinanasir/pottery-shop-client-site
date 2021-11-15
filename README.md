@@ -1,6 +1,6 @@
 # Clayware
 
-This is an E-commerce website example for pottery shop known as [Clayware](https://github.com/facebook/create-react-app).
+This is an E-commerce website example for pottery shop known as [Clayware](https://clayware-pottery-shop.web.app).
 
 # About This Website
 1. In this website people can find a huge collection of earthnware art.
