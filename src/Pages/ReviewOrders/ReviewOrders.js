@@ -7,10 +7,16 @@ import ReviewItems from './ReviewItems';
 import Cart from '../Cart/Cart';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
+import ConfirmModal from './ConfirmModal';
 
 const ReviewOrders = () => {
     const [products, setProducts] = useState([]);
     const [cart, setCart] = useCart(products);
+
+    // Confirm Modal
+    const [openConfirm, setOpenConfirm] = React.useState(false);
+    const handleConfirmOpen = () => setOpenConfirm(true);
+    const handleConfirmClose = () => setOpenConfirm(false);
 
     const confirmIcon = <FontAwesomeIcon icon={faCheckCircle} />
 
@@ -25,6 +31,7 @@ const ReviewOrders = () => {
         setCart(newCart);
         deleteFromDb(_id);
     }
+    // console.log(cart);
 
     return (
         <>
@@ -44,9 +51,14 @@ const ReviewOrders = () => {
                     </Grid>
                     <Grid item sx={{ mt: 15 }} xs={12} md={6}>
                         <Cart cart={cart}></Cart><br />
-                        <Button sx={{ width: '40%', mt: 5 }} style={{ backgroundColor: '#BD9200', color: 'white', fontSize: 15, fontWeight: 'bold' }} variant="contained">{confirmIcon}_Place Order</Button>
+                        <Button onClick={handleConfirmOpen} sx={{ width: '40%', mt: 5 }} style={{ backgroundColor: '#BD9200', color: 'white', fontSize: 15, fontWeight: 'bold' }} variant="contained">{confirmIcon}_Place Order</Button>
                     </Grid>
                 </Grid>
+                <ConfirmModal
+                    cart={cart}
+                    openConfirm={openConfirm}
+                    handleConfirmClose={handleConfirmClose}
+                ></ConfirmModal>
             </Container>
         </>
     );

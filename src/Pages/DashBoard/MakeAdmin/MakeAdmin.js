@@ -43,7 +43,6 @@ const MakeAdmin = () => {
                         onBlur={handleOnBlur}
                         variant="standard" />
                     <Button
-                        // onClick={handleGoogleSignIn}
                         type="submit"
                         sx={{ width: '45%', m: 1 }}
                         style={{ backgroundColor: '#BD9200', color: 'white', fontSize: 15, fontWeight: 'bold' }} variant="contained"
