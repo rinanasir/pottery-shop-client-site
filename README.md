@@ -1,5 +1,10 @@
 # Clayware
 
-This project was developed with react-app and material UI [Clayware](https://github.com/facebook/create-react-app).
+This is an E-commerce website example for pottery shop known as [Clayware](https://github.com/facebook/create-react-app).
 
 # About This Website
+1. In this website people can find a huge collection of earthnware art.
+2. One can open his/her user account for this website.
+3. Users can store his/her products in the cart and order in the future.
+4. Orders status will be shown on the user's dasboard.
+5. Users can provide reviews about our website.

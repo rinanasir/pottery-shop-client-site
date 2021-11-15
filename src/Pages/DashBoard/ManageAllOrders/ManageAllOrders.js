@@ -1,25 +1,22 @@
 import React, { useEffect, useState } from 'react';
-import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from '@mui/material';
+import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material';
 import { Box } from '@mui/system';
+import { Typography } from '@mui/material';
 import Paper from '@mui/material/Paper';
-import useAuth from '../../../hooks/useAuth';
 
-const MyOrders = () => {
-    const { user } = useAuth();
+const ManageAllOrders = () => {
     const [orders, setOrders] = useState([]);
 
     useEffect(() => {
-        const url = `http://localhost:5000/orders?email=${user.email}`;
-        fetch(url)
+        fetch('http://localhost:5000/orders')
             .then(res => res.json())
             .then(data => setOrders(data));
-    }, [user.email]);
-    // console.log(orders);
+    }, []);
 
     return (
         <Box container>
             <Typography sx={{ color: '#BD9200', fontWeight: 'bold' }} variant="h4" color="text.secondary">
-                My Orders
+                Manage All Orders
             </Typography>
             <TableContainer component={Paper}>
                 <Table aria-label="Appointments table">
@@ -52,4 +49,4 @@ const MyOrders = () => {
     );
 };
 
-export default MyOrders;
+export default ManageAllOrders;

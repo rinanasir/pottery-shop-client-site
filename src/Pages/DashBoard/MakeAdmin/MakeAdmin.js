@@ -32,7 +32,9 @@ const MakeAdmin = () => {
     return (
         <Box>
             <Container>
-                <Typography sx={{ mt: 4, fontWeight: 'bold' }} variant="h4">Make An Admin</Typography>
+                <Typography sx={{ color: '#BD9200', fontWeight: 'bold' }} variant="h4" color="text.secondary">
+                    Make Admin
+                </Typography>
                 <form onSubmit={handleAdminSubmit}>
                     <TextField
                         sx={{ width: '75%', m: 2 }}

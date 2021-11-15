@@ -32,7 +32,7 @@ const useFirebase = () => {
                 }).then(() => {
                 }).catch((error) => {
                 });
-                history.replace('/dashboard');
+                history.replace('/');
             })
             .catch((error) => {
                 setAuthError(error.message);

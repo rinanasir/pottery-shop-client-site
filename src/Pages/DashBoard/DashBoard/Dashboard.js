@@ -25,6 +25,7 @@ import useAuth from '../../../hooks/useAuth';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUserAlt } from '@fortawesome/free-solid-svg-icons';
 import ManageProducts from '../ManageProducts/ManageProducts';
+import ManageAllOrders from '../ManageAllOrders/ManageAllOrders';
 
 const drawerWidth = 240;
 
@@ -65,6 +66,9 @@ function Dashboard(props) {
                 </Link> <br />
                 <Link style={{ textDecoration: 'none' }} to={`${url}/makeAdmin`}>
                     <Button style={{ color: '#BD9200', fontSize: 15, fontWeight: 'bold' }} color="inherit">Add Admin</Button>
+                </Link> <br />
+                <Link style={{ textDecoration: 'none' }} to={`${url}/manageAllOrders`}>
+                    <Button style={{ color: '#BD9200', fontSize: 15, fontWeight: 'bold' }} color="inherit">Manage All Orders</Button>
                 </Link> <br />
                 <Link style={{ textDecoration: 'none' }} to={`${url}/manageProducts`}>
                     <Button style={{ color: '#BD9200', fontSize: 15, fontWeight: 'bold' }} color="inherit">Manage Products</Button>
@@ -154,6 +158,9 @@ function Dashboard(props) {
                     </Route>
                     <Route path={`${path}/addProduct`}>
                         <AddProduct></AddProduct>
+                    </Route>
+                    <Route path={`${path}/manageAllOrders`}>
+                        <ManageAllOrders></ManageAllOrders>
                     </Route>
                     <Route path={`${path}/manageProducts`}>
                         <ManageProducts></ManageProducts>

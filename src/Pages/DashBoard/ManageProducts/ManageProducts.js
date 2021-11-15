@@ -28,7 +28,9 @@ const ManageProducts = () => {
 
     return (
         <Box>
-            <Typography sx={{ mt: 4, fontWeight: 'bold' }} variant="h4">Manage Products</Typography>
+            <Typography sx={{ color: '#BD9200', fontWeight: 'bold' }} variant="h4" color="text.secondary">
+                Manage Products
+            </Typography>
             {
                 products.map(product =>
 
