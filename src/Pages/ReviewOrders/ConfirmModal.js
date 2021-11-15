@@ -22,7 +22,7 @@ const style = {
 
 const ConfirmModal = ({ cart, openConfirm, handleConfirmClose }) => {
     const { user } = useAuth();
-    const [confirmInfo, setConfirmInfo] = useState();
+    const [confirmInfo, setConfirmInfo] = useState();;
     // console.log(user.displayName, cart);
 
     const handleOnBlur = e => {
@@ -37,30 +37,29 @@ const ConfirmModal = ({ cart, openConfirm, handleConfirmClose }) => {
     const handleConfirmSubmit = e => {
         alert('Confirm submit');
         // collect data from the form
-        // const appointment = {
-        //     ...confirmInfo,
-        //     time,
-        //     serviceName: name,
-        //     date: date.toLocaleDateString()
-        // };
-        // // console.log(appointment);
+        const order = {
+            ...confirmInfo,
+            userName: user.displayName,
+            email: user.email,
+            cart
+        };
+        console.log(order);
 
         // // send data to server
-        // fetch('http://localhost:5000/appointments', {
-        //     method: 'POST',
-        //     headers: {
-        //         'content-type': 'application/json'
-        //     },
-        //     body: JSON.stringify(appointment)
-        // })
-        //     .then(res => res.json())
-        //     .then(data => {
-        //         // console.log(data);
-        //         if (data.insertedId) {
-        //             setBookingSuccess(true);
-        //             handleBookingClose();
-        //         }
-        //     });
+        fetch('http://localhost:5000/orders', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(order)
+        })
+            .then(res => res.json())
+            .then(data => {
+                // console.log(data);
+                if (data.insertedId) {
+                    handleConfirmClose();
+                }
+            });
 
         handleConfirmClose();
         e.preventDefault();
@@ -85,6 +84,7 @@ const ConfirmModal = ({ cart, openConfirm, handleConfirmClose }) => {
                     </Typography>
                     <form onSubmit={handleConfirmSubmit}>
                         <TextField
+                            disabled
                             label="Name"
                             sx={{ width: '90%', m: 1 }}
                             id="outlined-size-small"
@@ -94,6 +94,7 @@ const ConfirmModal = ({ cart, openConfirm, handleConfirmClose }) => {
                             size="small"
                         />
                         <TextField
+                            disabled
                             label="Email"
                             sx={{ width: '90%', m: 1 }}
                             id="outlined-size-small"
