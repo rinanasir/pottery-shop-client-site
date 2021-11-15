@@ -8,6 +8,7 @@ import PrivateRoute from './Pages/Login/PrivateRoute/PrivateRoute';
 import Register from './Pages/Login/Register/Register';
 import NotFound from './Pages/NotFound/NotFound';
 import ProductDetails from './Pages/ProductDetails/ProductDetails';
+import ReviewOrders from './Pages/ReviewOrders/ReviewOrders';
 import Shop from './Pages/Shop/Shop/Shop';
 
 function App() {
@@ -24,6 +25,9 @@ function App() {
             </PrivateRoute>
             <PrivateRoute path="/productdetails/:id">
               <ProductDetails></ProductDetails>
+            </PrivateRoute>
+            <PrivateRoute path="/reviewOrders">
+              <ReviewOrders></ReviewOrders>
             </PrivateRoute>
             <Route path="/home">
               <Home></Home>

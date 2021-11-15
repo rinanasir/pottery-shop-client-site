@@ -4,11 +4,16 @@ import { Button, Container, Divider, Grid, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
+import { addToDb, getStoredCart } from '../../utilities/fakedb';
+import Cart from '../Cart/Cart';
 import Navigation from '../Shared/Navigation/Navigation';
 
 const ProductDetails = () => {
     const { id } = useParams();
     const [product, setProduct] = useState({});
+
+    const [products, setProducts] = useState({});
+    const [cart, setCart] = useState([]);
 
     const dollarIcon = <FontAwesomeIcon icon={faDollarSign} />
     const cartIcon = <FontAwesomeIcon icon={faCartPlus} />
@@ -18,6 +23,34 @@ const ProductDetails = () => {
             .then(res => res.json())
             .then(data => setProduct(data));
     }, [])
+
+    useEffect(() => {
+        fetch("http://localhost:5000/products")
+            .then(res => res.json())
+            .then(data => setProducts(data));
+    }, []);
+
+    useEffect(() => {
+        if (products.length) {
+            const savedCart = getStoredCart();
+            const storedCart = [];
+            for (const key in savedCart) {
+                const addedProduct = products.find(singleProduct => singleProduct._id === key);
+                if (addedProduct) {
+                    const quantity = savedCart[key];
+                    addedProduct.quantity = quantity;
+                    storedCart.push(addedProduct);
+                }
+            }
+            setCart(storedCart);
+        }
+    }, [products]);
+
+    const handleAddToCart = (product) => {
+        const newCart = [...cart, product];
+        setCart(newCart);
+        addToDb(product._id);
+    };
 
     return (
         <Box>
@@ -35,11 +68,10 @@ const ProductDetails = () => {
                             {dollarIcon} {product.price}
                         </Typography>
                         <br />
-                        <Button sx={{ width: '50%', mt: 5 }} style={{ backgroundColor: '#BD9200', color: 'white', fontSize: 15, fontWeight: 'bold' }} variant="contained">{cartIcon}_Add to Cart</Button>
+                        <Button onClick={() => handleAddToCart(product)} sx={{ width: '50%', mt: 5 }} style={{ backgroundColor: '#BD9200', color: 'white', fontSize: 15, fontWeight: 'bold' }} variant="contained">{cartIcon}_Add to Cart</Button>
                     </Grid>
                     <Grid item sx={{ mt: 10 }} xs={12} md={4}>
-                        <Typography style={{ fontWeight: 'bold', color: '#BD9200' }} variant="h4">Cart</Typography>
-                        <Divider></Divider>
+                        <Cart cart={cart}></Cart>
                     </Grid>
                 </Grid>
             </Container>
