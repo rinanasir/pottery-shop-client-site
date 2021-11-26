@@ -1,6 +1,7 @@
 # Clayware
 
 This is an E-commerce website example for pottery shop known as [Clayware](https://clayware-pottery-shop.web.app).
+The server site code can be found [here](https://github.com/rinanasir/pottery-shop-server-site).
 
 # About This Website
 1. In this website people can find a huge collection of earthnware art.
